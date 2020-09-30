@@ -1,0 +1,814 @@
+<html lang="pt">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+    <!-- ./fonts -->
+
+    <!-- css -->
+    <style type="text/css">
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        html[lang=nl] .sidebar {
+            padding-left: 15px;
+        }
+
+        html[lang=nl] .sidebar--label {
+            width: 100%;
+            max-width: 106px;
+            margin-top: -2px;
+        }
+
+        html[lang=nl] .sidebar--item-align-right {
+            margin-right: 10px;
+            width: 60px;
+            text-align: right;
+        }
+
+        body {
+            width: 21cm;
+            margin: 0;
+            padding: 0 0;
+            color: #333333;
+            line-height: 22px;
+            font: 12px "Source Sans Pro", Arial;
+            font-style: normal;
+            display:flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-style: normal;
+            font-size: 30px;
+            margin: 0 0 20px 0;
+            padding: 13px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 1px solid #d2d2d2;
+        }
+
+        h1 span {
+            position: relative;
+            font-style: normal;
+            display: inline;
+            margin-right: 1px;
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+            max-width: 430px;
+        }
+
+        p {
+            color: #4c4c4c;
+            line-height: 18px;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background: #d2d2d2;
+        }
+
+        .section--first-name {
+            display: inline-block;
+        }
+
+        .section--last-name {
+          /*  display: inline-block;*/
+            position: relative;
+            left: 5px;
+        }
+
+        .sections {
+            left: 235px;
+            position: relative;
+            width: 535px;
+        }
+
+        .section {
+            position: relative;
+            width: 100%;
+            padding: 0;
+        }
+
+        .section p {
+            display: block;
+            font-style: normal;
+        }
+
+        .section:last-child {
+            border: none;
+        }
+
+        .section.section--summary {
+            margin-top: -10px;
+        }
+
+        .section--title {
+            display: block;
+            position: relative;
+            z-index: 99;
+            margin: 0 0 0 0;
+            font-weight: 600;
+            background: #fff;
+            padding: 15px 0 15px 0;
+            page-break-inside: avoid;
+            border-bottom: 1px solid #d2d2d2;
+        }
+
+        .section--title span {
+            display: inline-block;
+            margin-right: 0px;
+        }
+
+        .section--heading-group {
+            display: block;
+            padding: 15px 0 0 0;
+            margin: 0;
+            /*page-break-inside: avoid;*/
+        }
+
+        .section--list {
+            display: block;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section--list.skills {
+            padding-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .section--item {
+            display: block;
+            position: relative;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section--item.skills {
+            display: inline-block;
+            padding-top: 8px;
+            padding-bottom: 0;
+            width: 100%;
+            margin: 0;
+            padding-left: 5px;
+        }
+
+        .section--item.skills h3 {
+            font-size: 13px;
+        }
+
+        .section--item.skills:last-child {
+            padding-bottom: 0;
+        }
+
+        .skills--label {
+            display: inline-block;
+            width: 175px;
+            margin: 5px 0 0 -5px;
+        }
+
+        .skills--level {
+            display: inline-block;
+            position: relative;
+            top: 0;
+            height: 7px;
+            width: 150px;
+            padding: 0;
+            margin: 0;
+            background: #eaeaea;
+            border-radius: 6px;
+        }
+
+        .skills--level-filler {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #b1b1b1;
+            border-radius: 6px;
+        }
+
+        .skills--stars {
+            display: inline-block;
+            position: relative;
+            top: 4px;
+        }
+
+        .skills--stars svg {
+            fill: #b1b1b1;
+        }
+
+        .skills--stars svg.active {
+            fill: #2b2b38;
+        }
+
+        .section--date {
+            position: absolute;
+            right: 0;
+            text-align: right;
+            top: 16px;
+            width: 125px;
+            width: 125px;
+            font-size: 13px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section--heading {
+            display: block;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section--sub-heading {
+            display: block;
+            padding: 3px 0 0 0;
+            margin: 0;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        .section--content {
+            display: block;
+            padding: 5px 0 0 0;
+            margin: 0;
+        }
+
+        .section--content p {
+            display: block;
+        }
+
+        .section--content ul,
+        .section--content ol {
+            white-space: normal;
+            font-weight: 400;
+            list-style-position: outside;
+            color: #4c4c4c;
+            margin: 0;
+            padding: 0 0 0 16px;
+            text-align: left;
+        }
+
+        .section--content ul li,
+        .section--content ol li {
+            line-height: 18px;
+        }
+
+        .section--content ul li strong,
+        .section--content ol li strong {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .section--content ul li {
+            list-style-type: disc;
+        }
+
+        .section--content ol {
+            padding-left: 14px;
+        }
+
+        .section--content-single-textarea {
+            padding-top: 10px;
+        }
+
+        aside{
+            background: #2b2b38;
+            height: 1000px;  
+        }
+
+        .sidebar--bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 215px;
+            background: #2b2b38;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .sidebar {
+            left: 0;
+            overflow: hidden;
+            position: absolute;
+            color: #fff;
+            padding: 29px 0 0 20px;
+            width: 215px;
+        }
+
+        .sidebar.sidebar--no-avatar {
+            padding-top: 16px;
+        }
+
+        .avatar {
+            display: inline-block;
+            padding: 0;
+            margin: 0 0 0 9px;
+            height: 155px;
+            width: 155px;
+            border-radius: 50%;
+            background-size: cover !important;
+        }
+
+        .sidebar--data {
+            display: block;
+        }
+
+        .sidebar--title {
+            font-size: 15px;
+            font-style: normal;
+            padding: 20px 0 11px 0;
+            margin: 0 0 10px 0;
+            page-break-inside: avoid;
+            border-bottom: 1px solid #fff;
+        }
+
+        .sidebar--title span {
+            font-weight: 400;
+            font-style: normal;
+            margin-right: 0px;
+        }
+
+        .sidebar--title svg {
+            position: relative;
+            top: 4px;
+            margin-right: 4px;
+        }
+
+        .sidebar--label {
+            font-weight: 600;
+        }
+
+        .sidebar--list {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar--item {
+            display: block;
+            list-style: none;
+            font-size: 12px;
+            margin: 0;
+            page-break-inside: avoid;
+            padding: 8px 5px 0 0;
+        }
+
+        .sidebar--item:last-child {
+            padding-bottom: 0;
+        }
+
+        .sidebar--item-text {
+            line-height: 21px;
+        }
+
+        .sidebar--item-align-right {
+            float: right;
+            margin-right: 20px;
+        }
+
+        .c--434a54 .sidebar--bg,
+        .c--434a54 .skills--level-filler {
+            background: #434a54 !important;
+        }
+
+        .c--efa100 .sidebar--bg,
+        .c--efa100 .skills--level-filler {
+            background: #efa100 !important;
+        }
+
+        .c--3f6592 .sidebar--bg,
+        .c--3f6592 .skills--level-filler {
+            background: #3f6592 !important;
+        }
+
+        .c--d770ad .sidebar--bg,
+        .c--d770ad .skills--level-filler {
+            background: #d770ad !important;
+        }
+
+        .c--da4453 .sidebar--bg,
+        .c--da4453 .skills--level-filler {
+            background: #da4453 !important;
+        }
+
+        strong {
+            white-space: nowrap;
+        }
+    </style>
+    <!-- ./css -->
+
+</head>
+
+<body class="c--434a54" style="overflow: hidden !important;">
+
+    <div class="sidebar--bg"></div>
+
+    <aside class="sidebar  sidebar--no-avatar">
+
+
+
+        <div class="sidebar--data">
+            <h2 class="sidebar--title">
+                Pessoal
+            </h2>
+
+            <ul class="sidebar--list">
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Nome</span><br>
+                    Lincoln Alexandrino
+                </li>
+
+
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Morada</span><br>Vila Nova de Gaia
+                </li>
+
+
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Número de telefone</span><br>
+                    939918288
+                </li>
+
+
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Email</span><br>
+                    lincoln_alexandrino@hotmail.com
+                </li>
+
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Data de nascimento</span><br>
+                    06-06-1995
+                </li>
+
+
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Carta de condução</span><br>
+                    B
+                </li>
+
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Website</span><br>
+                    https://github.com/AleLincoln
+                </li>
+
+                <li class="sidebar--item">
+                    <span class="sidebar--label">LinkedIn</span><br>
+                    https://www.linkedin.com/in/lincoln-alexandrino/
+                </li>
+            </ul>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="sidebar--data">
+            <h2 class="sidebar--title">
+                Interesses
+            </h2>
+
+            <ul class="sidebar--list">
+                <li class="sidebar--item">
+                    <span class="sidebar--label">Basquete, futebol e filmes</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </aside>
+
+    <section class="sections">
+
+        <div class="section--name">
+            <h1>
+                Lincoln Alexandrino
+            </h1>
+        </div>
+
+
+
+        <div class="section">
+
+
+            <div class="section section--summary">
+                <div class="section--content">
+                    <p><br></p>
+                    <p><span style="color: rgb(34, 34, 34); background-color: rgb(248, 249, 250);">Nos últimos 2 anos
+                            tenho me dedicado ao desenvolvimento Front-end e suas tecnologias. Em busca de me
+                            desenvolver e especializar, realizei o curso de Front-end Development na Edit Disruptive
+                            Education. No meu GitHub é possível verificar alguns projetos realizados em JavaScript e
+                            React JS. Neste momento procuro ingressar em uma equipa para empregar todo conhecimento
+                            adquirido e colaborar para o desenvolvimento do projeto.</span></p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="section">
+
+            <div class="section--title">
+                <h2>
+                    Formação e Qualificações
+                </h2>
+            </div>
+
+            <ol class="section--list">
+
+                <li class="section--item">
+                    <div class="section--heading-group">
+                        <div class="section--date">
+                            Set 2019 - Fev 2020
+                        </div>
+                        <div class="section--heading">
+                            <h3>Front-end Development</h3>
+                        </div>
+                        <div class="section--sub-heading">
+                            EDIT. - Disruptive Digital Education, Porto </div>
+
+                        <div class="section--content">
+                            <p>UX &amp; UI Design</p>
+                            <p>HTML5</p>
+                            <p>CSS3</p>
+                            <p>SASS</p>
+                            <p>Responsive Design</p>
+                            <p>JavaScript</p>
+                            <p>React Foundations</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="section--item">
+                    <div class="section--heading-group">
+                        <div class="section--date">
+                            Ago 2014 - Nov 2017
+                        </div>
+                        <div class="section--heading">
+                            <h3>Marketing</h3>
+                        </div>
+                        <div class="section--sub-heading">
+                            Centro Universitário IBMR, Rio de Janeiro </div>
+
+                        <div class="section--content">
+
+                        </div>
+                    </div>
+                </li>
+            </ol>
+
+        </div>
+
+
+
+
+
+
+        <div class="section">
+
+            <div class="section--title">
+                <h2>
+                    Experiência profissional
+                </h2>
+            </div>
+
+            <div class="section--time-line-overlay"></div>
+
+            <ol class="section--list">
+                <li class="section--item">
+                    <div class="section--heading-group">
+                        <div class="section--date">Set 2020 - Out 2020</div>
+                        <div class="section--heading">
+                            <h3>Front-end Developer (Freelancer)</h3>
+                        </div>
+                        <div class="section--sub-heading">
+                            Sawala Consultoria Imobiliária, Rio de Janeiro </div>
+                    </div>
+                    <div class="section--content">
+                        <p>Desenvolvimento em Wordpress do website: ontheocean.net</p>
+                        <p>Ferramentas utilizadas: Elementor, plugins de formulários</p>
+                    </div>
+                </li>
+                <li class="section--item">
+                    <div class="section--heading-group">
+                        <div class="section--date">Set 2020 - Jul 2020</div>
+                        <div class="section--heading">
+                            <h3>Developer/Marketing</h3>
+                        </div>
+                        <div class="section--sub-heading">
+                            Cláudio Silva Consultores imobiliários, Porto </div>
+                    </div>
+                    <div class="section--content">
+                        <p>Desenvolvimento em Wordpress do website: claudiosilva.com.pt</p>
+                        <p>Ferramentas utilizadas: Elementor, Houzez theme (theme forest)</p>
+                    </div>
+                </li>
+                <li class="section--item">
+                    <div class="section--heading-group">
+                        <div class="section--date">Jul 2020 - Ago 2020</div>
+                        <div class="section--heading">
+                            <h3>Front-end Developer (Freelancer)</h3>
+                        </div>
+                        <div class="section--sub-heading">
+                            Just Mkt, Porto </div>
+                    </div>
+                    <div class="section--content">
+                        <p>Link do repositório: https://github.com/AleLincoln/JustMkt</p>
+                        <p>HTML, CSS e Vanilla JS</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="section">
+
+            <div class="section--title">
+                <h2>
+                    Aptidões
+                </h2>
+            </div>
+
+            <div class="section--time-line-overlay"></div>
+
+            <ol class="section--list skills">
+
+                <li class="section--item skills">
+                    <div class="skills--label">
+                        <h3>HTML</h3>
+                    </div>
+                    <div class="skills--level">
+                        <div class="skills--level-filler" style="width:75%;"></div>
+                    </div>
+                </li>
+                <li class="section--item skills">
+                    <div class="skills--label">
+                        <h3>CSS</h3>
+                    </div>
+                    <div class="skills--level">
+                        <div class="skills--level-filler" style="width:75%;"></div>
+                    </div>
+                </li>
+                <li class="section--item skills">
+                    <div class="skills--label">
+                        <h3>Javascript</h3>
+                    </div>
+                    <div class="skills--level">
+                        <div class="skills--level-filler" style="width:75%;"></div>
+                    </div>
+                </li>
+                <li class="section--item skills">
+                    <div class="skills--label">
+                        <h3>React JS</h3>
+                    </div>
+                    <div class="skills--level">
+                        <div class="skills--level-filler" style="width:50%;"></div>
+                    </div>
+                </li>
+                <li class="section--item skills">
+                    <div class="skills--label">
+                        <h3>SASS</h3>
+                    </div>
+                    <div class="skills--level">
+                        <div class="skills--level-filler" style="width:75%;"></div>
+                    </div>
+                </li>
+                <li class="section--item skills">
+                    <div class="skills--label">
+                        <h3>Git</h3>
+                    </div>
+                    <div class="skills--level">
+                        <div class="skills--level-filler" style="width:50%;"></div>
+                    </div>
+                </li>
+                <li class="section--item skills">
+                    <div class="skills--label">
+                        <h3>Wordpress</h3>
+                    </div>
+                    <div class="skills--level">
+                        <div class="skills--level-filler" style="width:75%;"></div>
+                    </div>
+                </li>
+
+            </ol>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+
+</body>
+
+</html>
